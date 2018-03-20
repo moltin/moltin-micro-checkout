@@ -4,6 +4,7 @@
   "description": "⚡️ One-click moltin checkout with Stripe",
   "scripts": {
     "dev": "micro-dev",
+    "precommit": "pretty-quick --staged",
     "start": "micro"
   },
   "main": "index.js",
@@ -15,6 +16,9 @@
     "microrouter": "^3.1.1"
   },
   "devDependencies": {
-    "micro-dev": "^2.2.2"
+    "husky": "^0.14.3",
+    "micro-dev": "^2.2.2",
+    "prettier": "^1.11.1",
+    "pretty-quick": "^1.4.1"
   }
 }
