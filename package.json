@@ -1,0 +1,20 @@
+{
+  "name": "moltin-micro-checkout",
+  "version": "1.0.0",
+  "description": "⚡️ One-click moltin checkout with Stripe",
+  "scripts": {
+    "dev": "micro-dev",
+    "start": "micro"
+  },
+  "main": "index.js",
+  "author": "Jonathan Steele",
+  "license": "MIT",
+  "dependencies": {
+    "@moltin/sdk": "github:ynnoj/js-sdk",
+    "micro": "^9.1.4",
+    "microrouter": "^3.1.1"
+  },
+  "devDependencies": {
+    "micro-dev": "^2.2.2"
+  }
+}

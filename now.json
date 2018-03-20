@@ -1,0 +1,6 @@
+{
+  "env": {
+    "NODE_ENV": "production",
+    "MOLTIN_CLIENT_ID": "@moltin-client-id"
+  }
+}
