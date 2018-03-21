@@ -1,3 +1,4 @@
+require('now-env')
 const { json, send } = require('micro')
 const { router, post } = require('microrouter')
 
@@ -27,12 +28,12 @@ module.exports = router(
       await moltin.Cart(cartId).AddProduct(product)
 
       // Create an order from the cart (checkout)
-      const { data: order } = await moltin
+      const { json: order } = await moltin
         .Cart(cartId)
         .Checkout(customer, billing, shipping)
 
       // Pay for the order
-      await moltin.Orders.Payment(order.id, {
+      await moltin.Orders.Payment(order.data.id, {
         gateway: 'stripe',
         method: 'purchase',
         payment: token
@@ -40,8 +41,8 @@ module.exports = router(
 
       // Success!
       send(res, 201)
-    } catch (e) {
-      e.errors.forEach(error => send(res, error.status, error.detail))
+    } catch ({ status, json }) {
+      send(res, status, json.errors)
     }
   })
 )
