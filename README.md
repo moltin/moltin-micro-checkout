@@ -18,6 +18,14 @@ Built with [Micro](https://github.com/zeit/micro) 🤩
 
 `npm run dev`
 
+Create a `now-secrets.json` at the project root with your moltin `client_id`.
+
+```json
+{
+  "@moltin-client-id": "your-client-id"
+}
+```
+
 Both a moltin _and_ Stripe account are needed for this to function. Be sure that your [Stripe keys](https://stripe.com/docs/dashboard#api-keys) are attached to your moltin store. Learn more about that [here](https://docs.moltin.com/?bash#configuring-stripe).
 
 ## ⛽️ Usage
