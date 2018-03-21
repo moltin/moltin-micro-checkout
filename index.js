@@ -4,7 +4,7 @@ const { router, post } = require('microrouter')
 const moltinGateway = require('@moltin/sdk').gateway
 
 const moltin = moltinGateway({
-  client_id: 'CFgaKzEctIKmDSLr1Nbrs9jLRw7j3GhdpKdd8uJcIF'
+  client_id: process.env.MOLTIN_CLIENT_ID
 })
 
 module.exports = router(
