@@ -4,7 +4,7 @@ const { router, post } = require('microrouter')
 const moltinGateway = require('@moltin/sdk').gateway
 
 const moltin = moltinGateway({
-  client_id: process.env.MOLTIN_CLIENT_ID
+  client_id: 'CFgaKzEctIKmDSLr1Nbrs9jLRw7j3GhdpKdd8uJcIF'
 })
 
 module.exports = router(
@@ -19,12 +19,14 @@ module.exports = router(
 
     try {
       // Get a new cart identifier
-      const cartId = await moltin.cartId
+      const cartId = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'.replace(/[x]/g, () =>
+        ((Math.random() * 16) | 0).toString(16)
+      )
 
       // Add the product to our cart
       await moltin.Cart(cartId).AddProduct(product)
 
-      // Create an order from the card (checkout)
+      // Create an order from the cart (checkout)
       const { data: order } = await moltin
         .Cart(cartId)
         .Checkout(customer, billing, shipping)
