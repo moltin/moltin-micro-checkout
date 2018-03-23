@@ -13,6 +13,7 @@
   "dependencies": {
     "@moltin/sdk": "github:ynnoj/js-sdk",
     "micro": "^9.1.4",
+    "micro-cors": "^0.1.0",
     "microrouter": "^3.1.1"
   },
   "devDependencies": {
