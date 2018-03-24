@@ -60,7 +60,7 @@ If a customer record does not exist, you can instead pass a customer object.
 If a product record does not exist, you can instead pass a product object.
 
 ```json
-"customer": {  
+"product": {  
   "name": "MULTI-VIBE 2",
   "sku": "MULTI-VIBE-MK2",
   "description": "Abstract, sculptural, refined and edgy with a modern twist.",
