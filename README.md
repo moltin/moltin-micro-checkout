@@ -4,13 +4,13 @@
 
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/ynnoj/moltin-micro-checkout&env=MOLTIN_CLIENT_ID)
 
-Asynchronous microservice that enables one-click purchasing with [moltin](https://moltin.com) and [Stripe](https://stripe.com).
+Asynchronous microservice that enables one-click purchasing with [moltin](https://moltin.com) and [Stripe](https://stripe.com). Built with [Micro](https://github.com/zeit/micro) 🤩
 
 * Add the product to a cart
 * Checkout the cart (create an order)
 * Pay for the order (using the Stripe token)
 
-Built with [Micro](https://github.com/zeit/micro) 🤩
+Try out the [demo app](https://github.com/ynnoj/moltin-next-checkout) using this service [here](https://moltin-next-checkout.now.sh).
 
 ## 🛠 Setup
 
