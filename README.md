@@ -1,10 +1,10 @@
 # moltin-micro-checkout
 
-> ⚡️ One-click moltin checkout with Stripe
+> ⚡️ One-click moltin purchasing with Stripe
 
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/ynnoj/moltin-micro-checkout&env=MOLTIN_CLIENT_ID)
 
-Asynchronous microservice that enables one-click checkout with [moltin](https://moltin.com) and [Stripe](https://stripe.com).
+Asynchronous microservice that enables one-click purchasing with [moltin](https://moltin.com) and [Stripe](https://stripe.com).
 
 * Add the product to a cart
 * Checkout the cart (create an order)
