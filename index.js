@@ -1,4 +1,3 @@
-require('now-env')
 const { json, send } = require('micro')
 const { router, post } = require('microrouter')
 const cors = require('micro-cors')()
@@ -27,7 +26,11 @@ module.exports = cors(
         )
 
         // Add the product to our cart
-        await moltin.Cart(cartId).AddProduct(product)
+        if (typeof product === 'object') {
+          await moltin.Cart(cartId).AddCustomItem(product)
+        } else {
+          await moltin.Cart(cartId).AddProduct(product)
+        }
 
         // Create an order from the cart (checkout)
         const { json: order } = await moltin
@@ -42,7 +45,7 @@ module.exports = cors(
         })
 
         // Success!
-        send(res, 201)
+        send(res, 201, { id: order.data.id })
       } catch ({ status, json }) {
         send(res, status, json.errors)
       }

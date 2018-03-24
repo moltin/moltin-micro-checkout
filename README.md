@@ -18,12 +18,10 @@ Built with [Micro](https://github.com/zeit/micro) 🤩
 
 `npm run dev`
 
-Create a `now-secrets.json` at the project root with your moltin `client_id`.
+Create a `.env` at the project root with your moltin `client_id`.
 
-```json
-{
-  "@moltin-client-id": "your-client-id"
-}
+```dosini
+MOLTIN_CLIENT_ID=
 ```
 
 Both a moltin _and_ Stripe account are needed for this to function. Be sure that your [Stripe keys](https://stripe.com/docs/dashboard#api-keys) are attached to your moltin store. Learn more about that [here](https://docs.moltin.com/?bash#configuring-stripe).
@@ -56,6 +54,20 @@ If a customer record does not exist, you can instead pass a customer object.
 "customer": {  
   "name": "Jonathan Steele",
   "email": "jonathan@moltin.com"
+}
+```
+
+If a product record does not exist, you can instead pass a product object.
+
+```json
+"customer": {  
+  "name": "MULTI-VIBE 2",
+  "sku": "MULTI-VIBE-MK2",
+  "description": "Abstract, sculptural, refined and edgy with a modern twist.",
+  "quantity": 1,
+  "price": {
+    "amount": 50000
+  }
 }
 ```
 
