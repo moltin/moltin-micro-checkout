@@ -19,8 +19,20 @@
   "devDependencies": {
     "husky": "^0.14.3",
     "micro-dev": "^2.2.2",
-    "now-env": "^3.0.4",
     "prettier": "^1.11.1",
     "pretty-quick": "^1.4.1"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "jsxBracketSameLine": true
+  },
+  "now": {
+    "alias": "moltin-micro-checkout.now.sh",
+    "dotenv": true,
+    "env": {
+      "NODE_ENV": "production",
+      "MOLTIN_CLIENT_ID": "@moltin-client-id"
+    }
   }
 }

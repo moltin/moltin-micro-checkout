@@ -1,7 +1,0 @@
-{
-  "alias": "moltin-micro-checkout.now.sh",
-  "env": {
-    "NODE_ENV": "production",
-    "MOLTIN_CLIENT_ID": "@moltin-client-id"
-  }
-}
