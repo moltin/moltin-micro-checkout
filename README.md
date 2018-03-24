@@ -48,6 +48,21 @@ This service exposes a single `POST` endpoint which expects the following payloa
 }
 ```
 
+You can also pass an optional `shipping_address` object. If this omitted then `billing_address` value will be passed to the API.
+
+```json
+"shipping_address": {
+  "first_name": "Jonathan",
+  "last_name": "Steele",
+  "line_1": "2nd Floor British India House",
+  "line_2": "15 Carliol Square",
+  "city": "Newcastle Upon Tyne",
+  "postcode": "NE1 6UF",
+  "county": "Tyne & Wear",
+  "country": "United Kingdom"
+}
+```
+
 If a customer record does not exist, you can instead pass a customer object.
 
 ```json
