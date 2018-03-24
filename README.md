@@ -1,16 +1,16 @@
 # moltin-micro-checkout
 
-> ⚡️ One-click moltin checkout with Stripe
+> ⚡️ One-click moltin purchasing with Stripe
 
 [![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/ynnoj/moltin-micro-checkout&env=MOLTIN_CLIENT_ID)
 
-Asynchronous microservice that enables one-click checkout with [moltin](https://moltin.com) and [Stripe](https://stripe.com).
+Asynchronous microservice that enables one-click purchasing with [moltin](https://moltin.com) and [Stripe](https://stripe.com). Built with [Micro](https://github.com/zeit/micro) 🤩
 
 * Add the product to a cart
 * Checkout the cart (create an order)
 * Pay for the order (using the Stripe token)
 
-Built with [Micro](https://github.com/zeit/micro) 🤩
+Try out the [demo app](https://github.com/ynnoj/moltin-next-checkout) using this service [here](https://moltin-next-checkout.now.sh).
 
 ## 🛠 Setup
 
@@ -48,6 +48,21 @@ This service exposes a single `POST` endpoint which expects the following payloa
 }
 ```
 
+You can also pass an optional `shipping_address` object. If this omitted then `billing_address` value will be passed to the API.
+
+```json
+"shipping_address": {
+  "first_name": "Jonathan",
+  "last_name": "Steele",
+  "line_1": "2nd Floor British India House",
+  "line_2": "15 Carliol Square",
+  "city": "Newcastle Upon Tyne",
+  "postcode": "NE1 6UF",
+  "county": "Tyne & Wear",
+  "country": "United Kingdom"
+}
+```
+
 If a customer record does not exist, you can instead pass a customer object.
 
 ```json
@@ -60,7 +75,7 @@ If a customer record does not exist, you can instead pass a customer object.
 If a product record does not exist, you can instead pass a product object.
 
 ```json
-"customer": {  
+"product": {  
   "name": "MULTI-VIBE 2",
   "sku": "MULTI-VIBE-MK2",
   "description": "Abstract, sculptural, refined and edgy with a modern twist.",

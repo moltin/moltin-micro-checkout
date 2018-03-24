@@ -1,7 +1,7 @@
 {
   "name": "moltin-micro-checkout",
   "version": "1.0.0",
-  "description": "⚡️ One-click moltin checkout with Stripe",
+  "description": "⚡️ One-click moltin purchasing with Stripe",
   "scripts": {
     "dev": "micro-dev",
     "precommit": "pretty-quick --staged",
