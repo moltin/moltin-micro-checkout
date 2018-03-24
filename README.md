@@ -64,12 +64,12 @@ If a product record does not exist, you can instead pass a product object.
 ```json
 "customer": {  
   "name": "MULTI-VIBE 2",
-	"sku": "MULTI-VIBE-MK2",
-	"description": "Abstract, sculptural, refined and edgy with a modern twist.",
-	"quantity": 1,
-	"price": {
-		"amount": 50000
-	}
+  "sku": "MULTI-VIBE-MK2",
+  "description": "Abstract, sculptural, refined and edgy with a modern twist.",
+  "quantity": 1,
+  "price": {
+    "amount": 50000
+  }
 }
 ```
 
