@@ -5,7 +5,7 @@ const cors = require('micro-cors')()
 const moltinGateway = require('@moltin/sdk').gateway
 
 const moltin = moltinGateway({
-  client_id: process.env.MOLTIN_CLIENT_ID
+  client_id: process.env.MOLTIN_CLIENT_ID || 'EdP3Gi1agyUF3yFS7Ngm8iyodLgbSR3wY4ceoJl0d2'
 })
 
 module.exports = cors(

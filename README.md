@@ -6,11 +6,11 @@
 
 Asynchronous microservice that enables one-click purchasing with [moltin](https://moltin.com) and [Stripe](https://stripe.com). Built with [Micro](https://github.com/zeit/micro) 🤩
 
-* Add the product to a cart
-* Checkout the cart (create an order)
-* Pay for the order (using the Stripe token)
+- Add the product to a cart
+- Checkout the cart (create an order)
+- Pay for the order (using the Stripe token)
 
-Try out the [demo app](https://github.com/ynnoj/moltin-next-checkout) using this service [here](https://moltin-next-checkout.now.sh).
+Try out the [demo app](https://moltin-next-checkout.now.sh) using this service [here](https://moltin-next-checkout.now.sh).
 
 ## 🛠 Setup
 
@@ -66,7 +66,7 @@ You can also pass an optional `shipping_address` object. If this omitted then `b
 If a customer record does not exist, you can instead pass a customer object.
 
 ```json
-"customer": {  
+"customer": {
   "name": "Jonathan Steele",
   "email": "jonathan@moltin.com"
 }
@@ -75,7 +75,7 @@ If a customer record does not exist, you can instead pass a customer object.
 If a product record does not exist, you can instead pass a product object.
 
 ```json
-"product": {  
+"product": {
   "name": "MULTI-VIBE 2",
   "sku": "MULTI-VIBE-MK2",
   "description": "Abstract, sculptural, refined and edgy with a modern twist.",
