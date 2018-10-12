@@ -11,7 +11,7 @@
   "author": "Jonathan Steele",
   "license": "MIT",
   "dependencies": {
-    "@moltin/sdk": "github:ynnoj/js-sdk",
+    "@moltin/request": "^1.2.0",
     "micro": "^9.1.4",
     "micro-cors": "^0.1.0",
     "microrouter": "^3.1.1"
