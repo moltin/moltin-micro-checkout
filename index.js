@@ -2,10 +2,10 @@ const { json, send } = require('micro')
 const { router, post } = require('microrouter')
 const cors = require('micro-cors')()
 
-const moltinGateway = require('@moltin/sdk').gateway
+const { createClient } = require('@moltin/request')
 
-const moltin = moltinGateway({
-  client_id: process.env.MOLTIN_CLIENT_ID || 'EdP3Gi1agyUF3yFS7Ngm8iyodLgbSR3wY4ceoJl0d2'
+const moltin = new createClient({
+  client_id: process.env.MOLTIN_CLIENT_ID
 })
 
 module.exports = cors(
@@ -27,18 +27,37 @@ module.exports = cors(
 
         // Add the product to our cart
         if (typeof product === 'object') {
-          await moltin.Cart(cartId).AddCustomItem(product)
+          await moltin.post(`cart/${cartId}/items`, {
+            ...body,
+            type: 'custom_item'
+          })
         } else {
-          await moltin.Cart(cartId).AddProduct(product)
+          await moltin.post(`cart/${cartId}/items`, {
+            product,
+            quantity: 1,
+            type: 'cart_item'
+          })
         }
 
+        let parsedCustomer = customer
+
+        if (typeof customer === 'string') parsedCustomer = { id: customer }
+
         // Create an order from the cart (checkout)
-        const { json: order } = await moltin
-          .Cart(cartId)
-          .Checkout(customer, billing, shipping)
+        const {
+          json: {
+            order: {
+              data: { id: orderId }
+            }
+          }
+        } = await moltin.post(`cart/${cartId}/checkout`, {
+          billing,
+          customer: parsedCustomer,
+          shipping
+        })
 
         // Pay for the order
-        await moltin.Orders.Payment(order.data.id, {
+        await moltin.post(`orders/${orderId}/payment`, {
           gateway: 'stripe',
           method: 'purchase',
           payment: token
