@@ -12,11 +12,11 @@ module.exports = cors(
   router(
     post('/', async (req, res) => {
       const {
-        billing_address: billing,
+        billing_address,
         customer,
         product,
         token,
-        shipping_address: shipping
+        shipping_address
       } = await json(req)
 
       try {
@@ -27,13 +27,13 @@ module.exports = cors(
 
         // Add the product to our cart
         if (typeof product === 'object') {
-          await moltin.post(`cart/${cartId}/items`, {
+          await moltin.post(`carts/${cartId}/items`, {
             ...body,
             type: 'custom_item'
           })
         } else {
-          await moltin.post(`cart/${cartId}/items`, {
-            product,
+          await moltin.post(`carts/${cartId}/items`, {
+            id: product,
             quantity: 1,
             type: 'cart_item'
           })
@@ -45,15 +45,11 @@ module.exports = cors(
 
         // Create an order from the cart (checkout)
         const {
-          json: {
-            order: {
-              data: { id: orderId }
-            }
-          }
-        } = await moltin.post(`cart/${cartId}/checkout`, {
-          billing,
+          data: { id: orderId }
+        } = await moltin.post(`carts/${cartId}/checkout`, {
+          billing_address,
           customer: parsedCustomer,
-          shipping
+          shipping_address: shipping_address || billing_address
         })
 
         // Pay for the order
