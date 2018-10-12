@@ -53,16 +53,16 @@ module.exports = cors(
         })
 
         // Pay for the order
-        await moltin.post(`orders/${orderId}/payment`, {
+        await moltin.post(`orders/${orderId}/payments`, {
           gateway: 'stripe',
           method: 'purchase',
           payment: token
         })
 
         // Success!
-        send(res, 201, { id: order.data.id })
-      } catch ({ status, json }) {
-        send(res, status, json.errors)
+        send(res, 201, { id: orderId })
+      } catch ({ status, title }) {
+        send(res, status, title)
       }
     })
   )
